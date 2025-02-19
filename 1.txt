@@ -1,0 +1,13 @@
+градиентная линия
+<section>
+        <div class="gradient-divider"></div>
+        <style>
+            .gradient-divider {
+                height: 5px;
+                background: linear-gradient(270deg, rgba(127, 51, 142, 0.5), rgba(119, 195, 221, 0.5), rgba(127, 51, 142, 0.5), rgba(119, 195, 221, 0.5));
+                background-size: 500% 100%;
+                animation: gradientAnimation 40s infinite alternate ease-in-out;
+                margin: 50px 0;
+            }
+        </style>
+    </section>
