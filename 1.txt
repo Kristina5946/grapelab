@@ -11,3 +11,210 @@
             }
         </style>
     </section>
+
+<style>
+        .aa-promo-container {
+            display: flex;
+            gap: 20px;
+            padding: 90px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: stretch; /* Выровнять блоки по высоте */
+        }
+
+        .aa-promo-left {
+            flex: 1; 
+            height: 100%;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .aa-promo-right {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Два столбца */
+            grid-template-rows: repeat(2, 1fr); /* Две строки */
+            gap: 10px; /* Промежутки между квадратиками */
+            height: 100%; /* высота как у большого квадратика */
+        }
+
+        .aa-single-promo-right {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        .aa-single-promo-right:hover {
+            transform: scale(1.05);
+        }
+
+        .aa-promo-banner {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .aa-promo-banner:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7); /* Темная полупрозрачная подложка */
+            opacity: 0; /* Скрыт по умолчанию */
+            transition: opacity 0.3s ease-out; /* Плавный переход для затемнения */
+        }
+
+        .aa-promo-banner:hover:before {
+            opacity: 1; /* Показываем затемнение при наведении */
+        }
+
+        .aa-promo-banner img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s;
+        }
+
+        .aa-promo-banner:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100%;
+            -moz-transform: scale(0);
+            -o-transform: scale(0);
+            -ms-transform: scale(0);
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+        .aa-promo-banner:hover img {
+            height: 114%;
+            width: 114%;
+            margin-left: -5%;
+            margin-top: -5%;
+        }
+
+        .aa-promo-banner:hover:before {
+            -moz-transform: scale(2);
+            -o-transform: scale(2);
+            -ms-transform: scale(2);
+            -webkit-transform: scale(2);
+            transform: scale(2);
+        }
+
+        .aa-promo-banner img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s;
+        }
+
+        .aa-prom-content {
+            position: absolute;
+            left: 0;
+            top: 25%;
+            right: 0;
+            width: 93%;
+            text-align: center;
+            z-index: 99;
+        }
+
+        .aa-prom-content {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #fff;
+        }
+
+        .aa-prom-content span {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 5px;
+            color: #000000;
+        }
+
+        .aa-prom-content h4 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .aa-prom-content h4 a {
+            color: #fff !important;
+            text-decoration: none;
+            transition: all 0.5s;
+        }
+
+        .aa-prom-content h4 a:hover {
+            color:  rgba(127, 51, 142, 1) !important; /* Цвет текста ссылки при наведении */
+        }
+    </style>
+    <div class="fade-in-block">
+    <section id="aa-promo">
+        <div class="aa-promo-container">
+            <!-- Большой блок -->
+            <div class="aa-promo-left">
+                <div class="aa-promo-banner">
+                    <img src="image/promo1.jpg" alt="Мобильные приложения">
+                    <div class="aa-prom-content">
+                        <h4><a href="#">Мобильные приложения</a></h4>
+                        <p>Разработка нативных и кроссплатформенных приложений.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Маленькие блоки (сетка 2x2) -->
+            <div class="aa-promo-right">
+                <div class="aa-single-promo-right">
+                    <div class="aa-promo-banner">
+                        <img src="image/promo1.jpg" alt="WEB-разработка">
+                        <div class="aa-prom-content">
+                            <h4><a href="#">WEB-разработка</a></h4>
+                            <p>Создание сайтов, веб-сервисов и платформ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aa-single-promo-right">
+                    <div class="aa-promo-banner">
+                        <img src="image/promo1.jpg" alt="Программное обеспечение">
+                        <div class="aa-prom-content">
+                            <h4><a href="#">Программное обеспечение</a></h4>
+                            <p>Индивидуальные IT-решения для бизнеса.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aa-single-promo-right">
+                    <div class="aa-promo-banner">
+                        <img src="image/promo1.jpg" alt="Тестирование">
+                        <div class="aa-prom-content">
+                            <h4><a href="#">Тестирование продуктов</a></h4>
+                            <p>Автоматизированное и ручное тестирование.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aa-single-promo-right">
+                    <div class="aa-promo-banner">
+                        <img src="image/promo1.jpg" alt="Дизайн продуктов">
+                        <div class="aa-prom-content">
+                            <h4><a href="#">Дизайн продуктов</a></h4>
+                            <p>UI/UX-дизайн, исследование пользователей.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

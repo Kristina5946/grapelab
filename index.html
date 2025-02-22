@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrapeLab</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Подключаем шрифт Montserrat с Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили хедера */
+        header {
+            height: 88px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(270deg, #7F338E, #77C3DD, #7F338E, #77C3DD);
+            background-size: 500% 100%;
+            animation: gradientAnimation 40s infinite alternate ease-in-out;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 0 5cm;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        /* Стили навигационного меню (справа) */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+        nav li {
+            cursor: pointer;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 18px;
+        }
+        nav a:hover {
+            color: #ecb8ffb8;
+        }
+
+        /* Блок с информацией */
+        .info-section {
+            background-color: white;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            position: relative;
+            width: 100%;
+            padding-left: 5cm;
+            padding-right: 5cm;
+        }
+        .info-content {
+            max-width: 34%;
+            line-height: 1.7;
+        }
+        .info-section .btn {
+            display: inline-block;
+            background: linear-gradient(270deg, #7F338E, #77C3DD, #7F338E, #77C3DD);
+            background-size: 500% 100%;
+            animation: gradientAnimation 40s infinite alternate ease-in-out;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            border: none;
+            margin-top: 20px;
+            
+        }
+        .info-section .btn:hover {
+            background: linear-gradient(270deg, #77C3DD, #7F338E);
+        }
+        
+        /* Анимация градиента */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .icon-cards {
+            position: relative;
+            width: 60vw;
+            height: 40vw;
+            max-width: 450px;
+            max-height: 320px;
+            perspective: 1000px;
+            transform-origin: center;
+            left: -11cm; /* Сдвиг карусели влево на 11 см */
+        }
+
+        .icon-cards__content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: translateZ(-30vw) rotateY(0);
+            animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        .icon-cards__item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 65vw;
+            height: 45vw;
+            max-width: 450px;
+            max-height: 320px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.1);
+            border-radius: 6px;
+            transform-origin: center;
+        }
+
+        .icon-cards__item:nth-child(1) {
+            background-image: url('image/colleagues-working-office-relaxed-atmosphere.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: rotateY(0) translateZ(35vw);
+        }
+        .icon-cards__item:nth-child(2) {
+            background-image: url('image/freepik__five-people-average-age-28-average-race-caucasian-__68452.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: rotateY(120deg) translateZ(35vw);
+        }
+        .icon-cards__item:nth-child(3) {
+            background-image: url('image/freepik__five-people-average-age-28-average-race-caucasian-__68451.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: rotateY(240deg) translateZ(35vw);
+        }
+
+        @keyframes carousel {
+            0%,  17.5%  { transform: translateZ(-35vw) rotateY(0); }
+            27.5%, 45%  { transform: translateZ(-35vw) rotateY(-120deg); }
+            55%, 72.5%  { transform: translateZ(-35vw) rotateY(-240deg); }
+            82.5%, 100% { transform: translateZ(-35vw) rotateY(-360deg); }
+        }
+
+        /* Скрытие слайдера на мобильных устройствах */
+        @media (max-width: 768px) {
+            .icon-cards {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div><img src="image/логоGit.png" alt="" width="30px" height="auto" href = "index.html"> GrapeLab</div>
+        <nav>
+            <ul>
+                <li><a href="portfolio.html">Портфолио</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="team.html">Команда</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="info-section">
+        <div class="info-content">
+            <h2>Разработка программного обеспечения</h2>
+            <p>Мы создаем передовые IT-решения, помогая компаниям автоматизировать процессы, улучшать клиентский опыт и выходить на новый уровень.</p>
+            <a href="#services" class="btn">Наши услуги</a>
+        </div>
+        <div class="icon-cards">
+            <div class="icon-cards__content">
+                <div class="icon-cards__item"></div>
+                <div class="icon-cards__item"></div>
+                <div class="icon-cards__item"></div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="gradient-divider"></div>
+        <style>
+            .gradient-divider {
+                height: 5px;
+                background: linear-gradient(270deg, rgba(127, 51, 142, 0.5), rgba(119, 195, 221, 0.5), rgba(127, 51, 142, 0.5), rgba(119, 195, 221, 0.5));
+                background-size: 500% 100%;
+                animation: gradientAnimation 40s infinite alternate ease-in-out;
+                margin: 50px 0;
+            }
+        </style>
+    </section>
+    <style>
+        .development-section {
+            width: 90%;
+            max-width: 1200px;
+            padding: 50px;
+            background: linear-gradient(270deg, #7F338E, #77C3DD, #7F338E, #77C3DD);
+            background-size: 500% 100%;
+            animation: gradientAnimation 10s infinite alternate ease-in-out;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .development-section::before {
+            content: "";
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            animation: pulse 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.7); opacity: 0; }
+        }
+
+        .development-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .dev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .dev-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+
+        .dev-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .dev-card .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dev-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .icon::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(127, 51, 142, 0.263); /* Полупрозрачный фиолетовый фон на фоточки*/
+        pointer-events: none; 
+    }
+
+        .dev-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .dev-card p {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        
+    </style>
+    <section class="development-section">
+        <h2>Направления разработки:</h2>
+        <div class="dev-grid">
+            <div class="dev-card">
+                <div class="icon" ><img src="image/мобильные_приложения.jpg" alt="Мобильные приложения">
+                </div>
+                <h3>Мобильные приложения</h3>
+                <p>Разработка нативных и кроссплатформенных приложений.</p>
+            </div>
+            <div class="dev-card">
+                <div class="icon" ><img src="image/веб_разработка.jpg" alt="веб_разработка"></div>
+                <h3>WEB-разработка</h3>
+                <p>Создание сайтов, веб-сервисов и платформ.</p>
+            </div>
+            <div class="dev-card">
+                <div class="icon" ><img src="image/программное_обеспечение.jpg" alt="программное_обеспечение"></div>
+                <h3>Программное обеспечение</h3>
+                <p>Индивидуальные IT-решения для бизнеса.</p>
+            </div>
+            <div class="dev-card">
+                <div class="icon" ><img src="image/тестирование.jpg" alt="тестирование"></div>
+                <h3>Тестирование</h3>
+                <p>Автоматизированное и ручное тестирование.</p>
+            </div>
+            <div class="dev-card">
+                <div class="icon" ><img src="image/дизайн.jpg" alt="дизайн"></div>
+                <h3>Дизайн продуктов</h3>
+                <p>UI/UX-дизайн, исследование пользователей.</p>
+            </div>
+            <div class="dev-card">
+                <div class="icon" ><img src="image/мобильные_приложения.jpg" alt="Мобильные приложения"></div>
+                <h3>AR/VR-технологии</h3>
+                <p>Создание продуктов для виртуальной и дополненной реальности.</p>
+            </div>
+            <div class="dev-card">
+                <div class="icon" ><img src="image/кибербезопасность.jpg" alt="кибербезопасность"></div>
+                <h3>Кибербезопасность</h3>
+                <p>Разработка решений для защиты данных и систем от угроз.</p>
+            </div>
+            <div class="dev-card">
+                <div class="icon" ><img src="image/мобильные_приложения.jpg" alt="Мобильные приложения"></div>
+                <h3>Разработка SaaS-продуктов</h3>
+                <p>Создание облачных решений и сервисов по подписке.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <h2 style="text-align: center; padding: 50px; font-size: 28px; margin-bottom: 30px;color: #202020;">Кейсы:</h2>
+        <div class="project-carousel-container">
+            <div class="project-carousel">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('image/colleagues-working-office-relaxed-atmosphere.jpg');"></div>
+                    <div class="project-content">
+                        <h3>CRM-система для бизнеса</h3>
+                        <p>Полнофункциональное решение для управления клиентами и продажами.</p>
+                        <a href="#" class="read-more">Подробнее</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('image/colleagues-working-office-relaxed-atmosphere.jpg');"></div>
+                    <div class="project-content">
+                        <h3>Мобильное приложение для доставки</h3>
+                        <p>Разработали удобный сервис для заказов и трекинга доставки.</p>
+                        <a href="#" class="read-more">Подробнее</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('image/colleagues-working-office-relaxed-atmosphere.jpg');"></div>
+                    <div class="project-content">
+                        <h3>Веб-платформа для онлайн-обучения</h3>
+                        <p>Создали удобный и масштабируемый сервис для курсов и обучения.</p>
+                        <a href="#" class="read-more">Подробнее</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('image/colleagues-working-office-relaxed-atmosphere.jpg');"></div>
+                    <div class="project-content">
+                        <h3>Программа для автоматизации производства</h3>
+                        <p>Оптимизировали внутренние процессы предприятия с помощью IT-решений.</p>
+                        <a href="#" class="read-more">Подробнее</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('image/colleagues-working-office-relaxed-atmosphere.jpg');"></div>
+                    <div class="project-content">
+                        <h3>Система управления проектами</h3>
+                        <p>Инструмент для планирования и управления проектами.</p>
+                        <a href="#" class="read-more">Подробнее</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('image/colleagues-working-office-relaxed-atmosphere.jpg');"></div>
+                    <div class="project-content">
+                        <h3>Новая система</h3>
+                        <p>Описание новой системы.</p>
+                        <a href="#" class="read-more">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <style>
+            .project-carousel-container {
+            display: flex;
+            justify-content: center; 
+            overflow: hidden; 
+            width: calc(300px * 4 + 20px); /* Ширина для четырех карточек с учетом промежутков */
+            margin: 0 auto; 
+            }
+            .project-carousel {
+            display: flex;
+            gap: 20px;
+            width: calc(300px * 4 + 20px); /* Ширина для четырех карточек с учетом промежутков */
+            transition: transform 2s ease-in-out;
+            }
+        
+            .project-card {
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.9s ease-in-out, color 0.2s ease-in-out;
+            cursor: pointer;
+            flex-shrink: 0; /* Предотвращение сжатия карточек */
+            }
+        
+            .project-card:hover {
+            background: linear-gradient( #7F338E,#7f338e85,#77C3DD); /* Тёмно-фиолетовый */
+            color: #fff;
+            }
+
+            .project-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            }
+        
+            .project-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Позволяет этому блоку занимать всё доступное пространство */
+            justify-content: space-between; /* Распределение пространства между контентом и ссылкой */
+            }
+        
+            .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #7F338E;
+            text-decoration: none;
+            font-weight: bold;
+            }
+        
+            .project-card:hover .read-more {
+            color: #fff;
+            }
+        
+        </style>
+        </section>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousel = document.querySelector(".project-carousel");
+            let scrollAmount = 0;
+            const cardWidth = 320; // 300px + 20px отступ
+            const totalCards = document.querySelectorAll(".project-card").length;
+            const visibleCards = 4;
+        
+            function scrollCarousel() {
+                if (scrollAmount < (totalCards - visibleCards) * cardWidth) {
+                    scrollAmount += cardWidth;
+                } else {
+                    scrollAmount = 0; // Возвращаемся в начало
+                }
+                carousel.style.transform = `translateX(-${scrollAmount}px)`;
+            }
+        
+            setInterval(scrollCarousel, 4000); // Автопрокрутка каждые 4 секунды
+        });
+        </script>
+        <style>
+            .partners-section {
+                text-align: center;
+                padding: 50px 0;
+                background: #fff;
+            }
+    
+            .partners-section h2 {
+                font-size: 28px;
+                margin-bottom: 30px;
+                color: #202020;
+            }
+    
+            .partners-logos {
+                display: flex;
+                justify-content: center;
+                gap: 150px;
+                flex-wrap: wrap;
+            }
+    
+            .partner-logo {
+                width: 120px;
+                filter: grayscale(100%);
+                transition: filter 0.3s ease, transform 0.2s ease;
+            }
+    
+            .partner-logo:hover {
+                filter: grayscale(0%);
+                transform: scale(1.1);
+            }
+    
+            @media (max-width: 768px) {
+                .partners-logos {
+                    gap: 20px;
+                }
+                
+                .partner-logo {
+                    width: 90px;
+                }
+            }
+    
+        </style>
+        <div class="fade-in-block">
+        <section class="partners-section">
+            <h2>Партнёры</h2>
+            <div class="partners-logos">
+                <img src="image/поас.png" alt="Nike" class="partner-logo">
+                <img src="image/панда.png" alt="Adidas" class="partner-logo">
+                <img src="image/сибинетик.png" alt="Columbia" class="partner-logo">
+                <img src="image/underarmour.png" alt="Under Armour" class="partner-logo">
+                <img src="image/ea7.png" alt="EA7" class="partner-logo">
+                
+            </div>
+        </section>
+        </div>
+        <style>
+          .reviews-container {
+            display: flex;
+            margin: 0 auto;
+            position: relative;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            padding: 100px;
+        }
+
+        .review-card {
+            background: linear-gradient(90deg, #BBA4CF,#e2d5e578);  
+            padding: 35px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .review-card2 {
+            background: linear-gradient(90deg, #C7E8EF,#e2d5e578);  
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card2:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .review-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .review-role {
+            color:#7B59B1;
+        }
+        .review-text {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+        
+        .stars {
+            color: #834bb5;
+            font-size: 18px;
+        }
+
+        .btn-review {
+            background: linear-gradient(90deg, #8c5db3de, #67b5cfe1);
+            border: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+        }
+
+        .btn-review:hover {
+            background: linear-gradient(90deg, #7F338E, #77C3DD);
+            transform: scale(1.05);
+        }
+
+    </style>
+    
+        <section>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar">👤</div>
+                        <div>
+                            <div class="review-name">Антон Васильевич</div>
+                            <div class="review-role">мужчина средних лет</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        Все супер класс! Вайб присутствует. Никакого кринжа. Все замечательно!
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+        
+                <div class="review-card2">
+                    <div class="review-header">
+                        <div class="avatar">👤</div>
+                        <div>
+                            <div class="review-name">Егор Владимирович</div>
+                            <div class="review-role">серый темщик</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        Воспользовался данным инструментом и остался приятно удивлен скоростью работы.
+                    </div>
+                    <div class="stars">★★★★☆</div>
+                </div>
+        
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar">👤</div>
+                        <div>
+                            <div class="review-name">Никита Андреевич</div>
+                            <div class="review-role">игроман-ленивец-трудяга</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        Заказал SEO-оптимизацию и UI/UX-доработку. Посещения сайта выросли, процент удержания тоже!
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <button class="btn-review">Оставить отзыв</button>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        document.addEventListener('scroll', function() {
+            const blocks = document.querySelectorAll('.fade-in-block');
+            const triggerBottom = window.innerHeight / 5 * 4; // Позиция триггера
+
+            blocks.forEach(block => {
+                const blockTop = block.getBoundingClientRect().top;
+
+                if (blockTop < triggerBottom) {
+                    block.classList.add('visible'); // Добавляем класс для видимости
+                } else {
+                    block.classList.remove('visible'); // Убираем класс, если блок не в зоне видимости
+                }
+            });
+        });
+    </script>
+
+    <footer>
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Email: <a href="mailto:info@grapelab.com">info@grapelab.com</a></p>
+            <p>Адрес: г. Москва, ул. Разработчиков, 10</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Социальные сети</h3>
+            <div class="social-icons">
+                <a href="#"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.601 0 0 .601 0 1.325v21.351C0 23.399.601 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.791 4.659-4.791 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.588l-.467 3.622h-3.121V24h6.116c.724 0 1.325-.601 1.325-1.324V1.325C24 .601 23.399 0 22.675 0z"/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24"><path d="M23.994 24V23.994H24V15.606c0-3.956-.843-7.018-5.422-7.018-2.2 0-3.678 1.206-4.283 2.352H14.23V8.79H9.373v15.204h4.94v-7.54c0-1.992.378-3.92 2.844-3.92 2.44 0 2.472 2.28 2.472 4.062v7.398h4.365zM.396 8.792h4.938V24H.396V8.792zM2.86 0C1.28 0 0 1.267 0 2.832c0 1.566 1.279 2.834 2.86 2.834 1.581 0 2.86-1.268 2.86-2.834C5.72 1.267 4.44 0 2.86 0z"/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.94 10.125 11.853v-8.385H7.078V12h3.047V9.356c0-3.019 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.954h-1.512c-1.491 0-1.954.925-1.954 1.875V12h3.328l-.531 3.468h-2.797v8.385C19.612 22.94 24 17.99 24 12 24 5.373 18.627 0 12 0z"/></svg></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Ссылки</h3>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
