@@ -1,5 +1,9 @@
 *{
     font-family: 'Montserrat', sans-serif;
+    
+}
+body {
+    overflow-x: hidden; /* Скрывает горизонтальный скролл */
 }
 .fade-in-block {
     opacity: 0; /* Начальная прозрачность */

@@ -84,31 +84,130 @@
     </header>
     
     <style>
-        .main-header {
-            text-align: center;
-            justify-content: center;
-            margin: 40px 0; /* Отступ сверху и снизу */
-            background: white;
-        }
-    
-        .main-header h1 {
-            font-size: 60px; /* Размер шрифта */
-            color: #7F338E; /* Основной цвет заголовка */
-            text-shadow: 2px 2px 0 #77C3DD, 4px 4px 0 #582664; /* Тень заголовка */
-            font-weight: bold; /* Жирный шрифт */
-        }
-    </style>
-    
-    <section class="main-header">
-        <h1>НАША КОМАНДА</h1>
-    </section>
-    <style>
-        .founder-container {
-            background-color: #56398531;
+       /* Блок команды */
+        .team-section1 {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            padding: 40px 0; /* Добавляем отступы сверху и снизу */
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin: 40px 0;
+            padding: 40px;
+        }
+
+        .image-container1 {
+            position: relative;
+            width: 50%;
+        }
+
+        .image-container1 img {
+            width: 100%;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+            animation: shake 2s forwards; /* Анимация покачивания */
+        }
+
+        .purple-frame {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            background-color: #7f338e9e;
+            border-radius: 10px;
+            z-index: 1;
+            transform: scale(0); /* Начальное состояние для анимации */
+            animation: scaleIn 1s forwards; /* Анимация появления */
+        }
+
+        .content {
+            width: 35%;
+            padding-left: 100px;
+            opacity: 0; /* Начальное состояние для анимации */
+            transform: translateX(20px); /* Начальное положение */
+            animation: slideIn 2s forwards 0.5s; /* Анимация выезда текста с задержкой */
+        }
+
+        .content h1 {
+            font-size: 47px;
+            color: #7F338E;
+            text-shadow: 2px 2px 0 #77C3DD, 4px 4px 0 #582664;
+        }
+
+        .content p {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Анимации */
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+    </style>
+    <section class="team-section1">
+        <div class="image-container1">
+            <div class="purple-frame"></div>
+            <img src="image/команда.jpg" alt="Наша команда">
+        </div>
+        <div class="content">
+            <div class="main-header">
+                <h1>НАША КОМАНДА</h1>
+            </div>
+            <p>Наша команда высококвалифицированных специалистов обладает многолетним опытом работы в различных отраслях, 
+                обеспечивая первоклассную поддержку, адаптированную к вашим уникальным потребностям. 
+                Изображения с сайта <a href="#">Freepik</a>.
+            </p>
+        </div>
+    </section>
+    
+    <style>
+        .founders {
+            background-color: #76767631; /* Фон контейнера с заголовком и изображениями */
+            padding: 40px 0; /* Отступы сверху и снизу */
+        }
+
+        .founder-container {
+            display: flex;
+            justify-content: center; /* Центрирование изображений по горизонтали */
+            gap: 40px; /* Расстояние между изображениями */
+            margin-top: 20px; /* Отступ сверху для отделения от заголовка */
+        }
+
+        .founders-title {
+            text-align: center; /* Выравнивание заголовка по центру */
+            font-size: 36px; /* Размер шрифта */
+            color: #7F338E; /* Цвет текста */
+            margin-bottom: 20px; /* Отступ снизу */
+            font-weight: bold; /* Жирный шрифт */
         }
 
         .founder {
@@ -121,11 +220,11 @@
             border-radius: 15px;
             transition: filter 0.3s ease, transform 0.2s ease;
         }
-        
 
         .founder img:hover {
             transform: scale(1.05);
         }
+
         .overlay {
             position: absolute;
             bottom: 2px;
@@ -147,7 +246,9 @@
             opacity: 1;
         }
     </style>
+    
     <section class="founders">
+        <h2 class="founders-title">Основатели проекта<br></h2>
         <div class="founder-container">
             <div class="founder">
                 <img src="image/чел1.jpg" alt="Фотография основателя">
@@ -172,102 +273,173 @@
             </div>
         </div>
     </section>
+    
     <style>
-        .team-section {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            padding: 60px;
-            max-width: 1100px;
-            margin: auto;
-        }
-        .team-member {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            padding: 30px;
-            background: #f9f9f9;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease-in-out;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-in-out forwards;
-        }
-        .team-member:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        .team-member img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-        .team-member:hover img {
-            transform: scale(1.05);
-        }
-        .team-info h3 {
-            font-size: 20px;
-            margin: 0;
-            color: #582664;
-        }
-        .team-info p {
-            margin: 10px 0;
-            color: #694c98;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .new-team-section {
+        display: flex;
+        flex-wrap: wrap; /* Позволяет элементам занимать несколько строк */
+        gap: 30px; /* Расстояние между карточками */
+        padding: 60px;
+        max-width: 1100px;
+        margin: auto;
+    }
+    
+    .new-team-member {
+        display: flex;
+        flex-direction: column; /* Элементы будут в колонке */
+        align-items: center; /* Центрирование элементов */
+        background: #f9f9f9; /* Фон карточки */
+        border-radius: 15px; /* Закругление углов */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+        padding: 30px;
+        width: calc(25% - 22.5px); /* 4 элемента в ряд с учетом отступов */
+        transition: transform 0.4s ease-in-out; /* Анимация при наведении */
+        margin: 20px 0;
+       
+        transform: translateY(20px);
+        border: 5px solid transparent; 
+        background-image: linear-gradient(white, white), linear-gradient(to right, #7F338E, #77C3DD);
+        background-clip: padding-box, border-box; /* наложение градиента на границу */
+        background-origin: border-box; 
+        border-radius: 10px; 
+    }
+    
+    .new-team-member img {
+        width: 180px; /* Размер изображения */
+        height: 180px; /* Высота изображения */
+        border-radius: 50%; /* Круглая форма изображения */
+        object-fit: cover; /* Обрезка изображения по размеру */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Тень для изображения */
+        transition: transform 0.3s; /* Анимация для изображения */
+    }
+    
+    .new-team-member:hover img {
+        transform: scale(1.05); /* Увеличение изображения при наведении */
+    }
+    
+    .new-member-info h3 {
+        font-size: 20px; /* Размер заголовка */
+        margin-top: 10px; /* Убираем отступы */
+        color: #582664; /* Цвет заголовка */
+        text-align: center; /* Центрируем текст */
+    }
+    
+    .new-member-info p {
+        margin: 10px 0; /* Отступы для параграфов */
+        color: #694c98; /* Цвет текста */
+        text-align: center; /* Центрируем текст */
+    }
     </style>
 
-    <div class="team-section">
-        <div class="fade-in-block">
-        <div class="team-member">
+
+    <div class="new-team-section">
+        <div class="new-team-member">
             <img src="image/арина.jpg" alt="Алексей Смирнов">
-            <div class="team-info">
+            <div class="new-member-info">
                 <h3>Алексей Смирнов</h3>
                 <p>CEO / Основатель</p>
                 <p>"Верю в инновации и качественные продукты. Наша команда делает технологии доступными!"</p>
-            </div></div>
+            </div>
         </div>
-        <div class="fade-in-block">
-        <div class="team-member">
+        
+        <div class="new-team-member">
             <img src="image/алексей.jpg" alt="Мария Иванова">
-            <div class="team-info">
+            <div class="new-member-info">
                 <h3>Мария Иванова</h3>
                 <p>Дизайнер</p>
                 <p>"Люблю минимализм и удобный интерфейс. Дизайн — это не просто красота, а эмоции пользователей."</p>
-            </div></div>
+            </div>
         </div>
-        <div class="fade-in-block">
-        <div class="team-member">
+    
+        <div class="new-team-member">
             <img src="image/арина.jpg" alt="Алексей Смирнов">
-            <div class="team-info">
+            <div class="new-member-info">
                 <h3>Алексей Смирнов</h3>
                 <p>CEO / Основатель</p>
                 <p>"Верю в инновации и качественные продукты. Наша команда делает технологии доступными!"</p>
-            </div></div>
+            </div>
         </div>
-        <div class="fade-in-block">
-        <div class="team-member">
+        
+        <div class="new-team-member">
             <img src="image/алексей.jpg" alt="Мария Иванова">
-            <div class="team-info">
+            <div class="new-member-info">
                 <h3>Мария Иванова</h3>
                 <p>Дизайнер</p>
                 <p>"Люблю минимализм и удобный интерфейс. Дизайн — это не просто красота, а эмоции пользователей."</p>
-            </div></div>
+            </div>
+        </div>
+        <div class="new-team-member">
+            <img src="image/чел1.jpg" alt="Алексей Смирнов">
+            <div class="new-member-info">
+                <h3>Алексей Смирнов</h3>
+                <p>CEO / Основатель</p>
+                <p>"Верю в инновации и качественные продукты. Наша команда делает технологии доступными!"</p>
+            </div>
+        </div>
+    
+        <div class="new-team-member">
+            <img src="image/чел2.jpg" alt="Мария Иванова">
+            <div class="new-member-info">
+                <h3>Мария Иванова</h3>
+                <p>Дизайнер</p>
+                <p>"Люблю минимализм и удобный интерфейс. Дизайн — это не просто красота, а эмоции пользователей."</p>
+            </div>
+        </div>
+    
+        <div class="new-team-member">
+            <img src="image/чел3.jpg" alt="Петр Петров">
+            <div class="new-member-info">
+                <h3>Петр Петров</h3>
+                <p>Разработчик</p>
+                <p>"Код — это моя страсть. Всегда стремлюсь к совершенству в каждом проекте."</p>
+            </div>
+        </div>
+    
+        <div class="new-team-member">
+            <img src="image/чел4.jpg" alt="Анна Сидорова">
+            <div class="new-member-info">
+                <h3>Анна Сидорова</h3>
+                <p>Маркетолог</p>
+                <p>"Стратегия — это ключ к успеху. Я создаю механизмы, которые привлекают клиентов."</p>
+            </div>
+        </div>
+    
+        <div class="new-team-member">
+            <img src="image/чел5.jpg" alt="Иван Кузнецов">
+            <div class="new-member-info">
+                <h3>Иван Кузнецов</h3>
+                <p>Аналитик данных</p>
+                <p>"Работаю с числами, чтобы видеть за ними истории. Данные рассказывают правду."</p>
+            </div>
+        </div>
+    
+        <div class="new-team-member">
+            <img src="image/чел6.jpg" alt="Светлана Орлова">
+            <div class="new-member-info">
+                <h3>Светлана Орлова</h3>
+                <p>UI/UX Дизайнер</p>
+                <p>"Создаю удобные и привлекательные интерфейсы. Понимание пользователей — главный приоритет."</p>
+            </div>
+        </div>
+    
+        <div class="new-team-member">
+            <img src="image/чел7.jpg" alt="Роман Зайцев">
+            <div class="new-member-info">
+                <h3>Роман Зайцев</h3>
+                <p>Системный администратор</p>
+                <p>"Все системы должны работать безупречно. Я отвечаю за надежность инфраструктуры."</p>
+            </div>
+        </div>
+    
+        <div class="new-team-member">
+            <img src="image/чел8.jpg" alt="Анастасия Белова">
+            <div class="new-member-info">
+                <h3>Анастасия Белова</h3>
+                <p>Контент-менеджер</p>
+                <p>"Создаю контент, который вдохновляет. Слово имеет силу — я использую это в своих проектах."</p>
+            </div>
         </div>
     </div>
-    
     <section class="values">
         <div class="white-overlay">
             <div class="values-container">
@@ -280,35 +452,16 @@
                     <li> Что-то еще</li>
                 </ul>
             </div>
-        </div> <!-- Полупрозрачный квадрат -->
+        </div> 
     </section>
     
     <style>
-        .team-member {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            border: 5px solid transparent; 
-            background-image: linear-gradient(white, white), linear-gradient(to right, #7F338E, #77C3DD);
-            background-clip: padding-box, border-box; /* наложение градиента на границу */
-            background-origin: border-box; 
-            border-radius: 10px; 
-        }
-        .circle-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
+        
     
         .values {
             width: 90%;
-            max-width: 1200px;
             padding: 50px;
-            background: linear-gradient(270deg, #7F338E, #77C3DD);
+            background:#76767631;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             color: white;
@@ -322,7 +475,7 @@
             margin: 0 auto;
             width: 80%;
             height: auto; /* Изменяем на auto, чтобы учитывался контент */
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.381);
             border-radius: 15px;
             display: flex;
             flex-direction: column;

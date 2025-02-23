@@ -218,3 +218,118 @@
             </div>
         </div>
     </section>
+
+
+
+    <style>
+        .team-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 60px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease-in-out;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-in-out forwards;
+        }
+        .team-member:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .team-member img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+        .team-info h3 {
+            font-size: 20px;
+            margin: 0;
+            color: #582664;
+        }
+        .team-info p {
+            margin: 10px 0;
+            color: #694c98;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .team-member {
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            border: 5px solid transparent; 
+            background-image: linear-gradient(white, white), linear-gradient(to right, #7F338E, #77C3DD);
+            background-clip: padding-box, border-box; /* наложение градиента на границу */
+            background-origin: border-box; 
+            border-radius: 10px; 
+        }
+        .circle-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+
+    <div class="team-section">
+        <div class="fade-in-block">
+        <div class="team-member">
+            <img src="image/арина.jpg" alt="Алексей Смирнов">
+            <div class="team-info">
+                <h3>Алексей Смирнов</h3>
+                <p>CEO / Основатель</p>
+                <p>"Верю в инновации и качественные продукты. Наша команда делает технологии доступными!"</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="image/алексей.jpg" alt="Мария Иванова">
+            <div class="team-info">
+                <h3>Мария Иванова</h3>
+                <p>Дизайнер</p>
+                <p>"Люблю минимализм и удобный интерфейс. Дизайн — это не просто красота, а эмоции пользователей."</p>
+            </div>
+        </div>
+        </div>
+        <div class="fade-in-block">
+        <div class="team-member">
+            <img src="image/арина.jpg" alt="Алексей Смирнов">
+            <div class="team-info">
+                <h3>Алексей Смирнов</h3>
+                <p>CEO / Основатель</p>
+                <p>"Верю в инновации и качественные продукты. Наша команда делает технологии доступными!"</p>
+            </div>
+        </div>
+        
+        <div class="team-member">
+            <img src="image/алексей.jpg" alt="Мария Иванова">
+            <div class="team-info">
+                <h3>Мария Иванова</h3>
+                <p>Дизайнер</p>
+                <p>"Люблю минимализм и удобный интерфейс. Дизайн — это не просто красота, а эмоции пользователей."</p>
+            </div>
+            </div>
+        </div>
+    </div>
